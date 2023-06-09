@@ -5,20 +5,20 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
 
     const navItems = <>
-        <li className='text-sm'>
+        <li className='font-bold uppercase'>
             <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Home</NavLink>
         </li>
-        <li className='text-sm'>
+        <li className='font-bold uppercase'>
             <NavLink to='/alltoys' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>All Toys</NavLink>
         </li>
-        <li className='text-sm'>
+        <li className='font-bold uppercase'>
             <NavLink to='/mytoys' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>My Toys</NavLink>
         </li>
-        <li className='text-sm'>
+        <li className='font-bold uppercase'>
             <NavLink to='/addtoy' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Add A Toy</NavLink>
         </li>
 
-        <li className='text-sm'>
+        <li className='font-bold uppercase'>
             <NavLink to='/blog' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Blog</NavLink>
         </li>
     </>
