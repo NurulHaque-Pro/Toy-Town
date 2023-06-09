@@ -9,13 +9,13 @@ const Navbar = () => {
             <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Home</NavLink>
         </li>
         <li className='text-sm'>
-            <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>All Toys</NavLink>
+            <NavLink to='/alltoys' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>All Toys</NavLink>
         </li>
         <li className='text-sm'>
-            <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>My Toys</NavLink>
+            <NavLink to='/mytoys' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>My Toys</NavLink>
         </li>
         <li className='text-sm'>
-            <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Add A Toy</NavLink>
+            <NavLink to='/addtoy' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Add A Toy</NavLink>
         </li>
 
         <li className='text-sm'>
