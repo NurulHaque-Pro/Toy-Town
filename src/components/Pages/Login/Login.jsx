@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Login = () => {
 
-    const { signInWithEmail } = useContext(AuthContext)
+    const { signInWithEmail, loginWithGoogle } = useContext(AuthContext)
 
     const [error, setError] = useState('')
 
@@ -52,7 +52,16 @@ const Login = () => {
     }
 
     const handleGoogleLogin = () => {
-
+        setError('');
+        loginWithGoogle()
+            .then(result => {
+                // console.log(result.user);
+                navigate(from, { replace: true });
+                form.reset();
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     }
 
     return (

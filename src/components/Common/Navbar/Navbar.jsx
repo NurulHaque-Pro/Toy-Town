@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import logo from '../../../../public/ToyTown-Logo.png';
+import defaultUserPng from '../../../assets/default-user-icon.jpg';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
@@ -58,10 +59,8 @@ const Navbar = () => {
                         user ?
                             <>
                                 <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-                                    <img className='w-10 cursor-pointer rounded-full' src={user.photoURL ? user.photoURL : userPng} alt="" />
-                                    {
-                                        console.log(user.photoURL)
-                                    }
+                                    <img className='w-10 cursor-pointer rounded-full' src={user.photoURL ? user.photoURL : defaultUserPng} alt="" />
+                                   
                                 </div>
                                 <Link className=" font-medium text-[white] px-8 py-3 bg-primary border border-primary hover:bg-[#ff6a3d00] hover:text-primary rounded"><button onClick={handleSignOut}>Logout</button></Link></>
                             :

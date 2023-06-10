@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import Lottie from "lottie-react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import truckAnimation from '../../../assets/truck-animation.json'
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const SignUp = () => {
 
-    const { registerWithEmail } = useContext(AuthContext)
+    const { registerWithEmail, loginWithGoogle } = useContext(AuthContext)
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const [error, setError] = useState('')
 
@@ -23,18 +26,26 @@ const SignUp = () => {
         };
 
         registerWithEmail(email, password, name, photoURL)
-        .then(result => {
-            const loggedUser = result.user;
-            navigate(from, { replace: true });
-            form.reset();
-        })
-        .catch(error => {
-            setError(error.message);
-        })
+            .then(result => {
+                navigate(from, { replace: true });
+                form.reset();
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     }
 
     const handleGoogleLogin = () => {
-
+        setError('');
+        loginWithGoogle()
+            .then(result => {
+                // console.log(result.user);
+                navigate(from, { replace: true });
+                form.reset();
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     }
 
     return (
