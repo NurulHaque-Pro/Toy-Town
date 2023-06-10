@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AddToy = () => {
 
@@ -16,14 +16,34 @@ const AddToy = () => {
         const rating = form.rating.value;
         const description = form.description.value;
 
-        const toyInfo = {name, email, toyTitle, toyPhotoURL, category, price, quantity, rating, description}
-        console.log(toyInfo);
+        const toy = { name, email, toyTitle, toyPhotoURL, category, price, quantity, rating, description }
+        // console.log(toy);
+
+
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    alert('Toy added successfully');
+                    form.reset();
+                }
+            })
+
     }
+
+
 
     return (
         <div className='my-10'>
             <div className="text-center mb-5">
-                <h1 className="text-4xl font-bold">Upload YOur Toy!</h1>
+                <h1 className="text-4xl font-bold">Upload Your Toy!</h1>
             </div>
             <div className="card flex-shrink-0 w-full mx-auto max-w-5xl shadow-2xl bg-base-100">
 
