@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import truckAnimation from '../../../assets/truck-animation.json'
+import truckAnimation from '../../../assets/truck.json'
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const SignUp = () => {
@@ -49,15 +49,15 @@ const SignUp = () => {
     }
 
     return (
-        <div className='grid md:grid-cols-2 gap-5 bg-base-200 py-12 '>
+        <div className='grid items-center md:grid-cols-2 gap-5 bg-base-200 py-12 '>
             <div className='order-2 md:order-1'>
                 <Lottie className='w-[300px] md:w-[500px] mx-auto' animationData={truckAnimation} loop={true} />
             </div>
             <div className='order-1 md:order-2'>
                 <div className="hero min-h-screen bg-base-200">
-                    <div className="hero-content w-96 flex-col">
+                    <div className="hero-content flex-col">
                         <div className="text-center mb-5">
-                            <h1 className="text-4xl font-bold">Please Register!</h1>
+                            <h1 className="text-4xl font-bold">Please Sign Up!</h1>
                         </div>
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
@@ -96,7 +96,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <p className='label-text-alt'>
                                         Already have an account?
-                                        <Link to='/login' className=" link link-hover"> Login</Link>
+                                        <Link to='/login' className=" link link-hover text-primary"> Login</Link>
                                     </p>
                                 </label>
 

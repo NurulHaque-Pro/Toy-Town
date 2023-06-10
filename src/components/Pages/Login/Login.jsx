@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import truckAnimation from '../../../assets/truck-animation.json'
+import truckAnimation from '../../../assets/truck.json'
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Login = () => {
@@ -66,7 +66,7 @@ const Login = () => {
 
     return (
         <div>
-            <div className='grid md:grid-cols-2 md:gap-5 bg-base-200 md:py-10 py-2 '>
+            <div className='grid items-center md:grid-cols-2 md:gap-5 bg-base-200 md:py-10 py-2 '>
                 <div className='order-2 md:order-1'>
                     <Lottie className='w-[300px] md:w-[500px] mx-auto' animationData={truckAnimation} loop={true} />
                 </div>
