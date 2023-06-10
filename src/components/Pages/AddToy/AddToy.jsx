@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const AddToy = () => {
 
+    const { user } = useContext(AuthContext);
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -39,7 +41,7 @@ const AddToy = () => {
     }
 
 
-
+    console.log(user.displayName);
     return (
         <div className='my-10'>
             <div className="text-center mb-5">
@@ -53,13 +55,15 @@ const AddToy = () => {
                             <label className="label">
                                 <span className="label-text">Seller Name</span>
                             </label>
-                            <input name='name' required type="text" placeholder="Full Name" className="input input-bordered" />
+                            <input name='name' required type="text" placeholder="Full Name" defaultValue={
+                                user.name ? user.name : user.displayName
+                            } className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Seller Email</span>
                             </label>
-                            <input name='email' type="email" placeholder="Email" className="input input-bordered" required />
+                            <input name='email' type="email" placeholder="Email" defaultValue={user?.email} className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">

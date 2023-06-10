@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const MyToys = () => {
 
+    const {user} = useContext(AuthContext)
     const [toys, setToys] = useState([])
 
+
     useEffect(() => {
-        fetch('http://localhost:5000/toys')
+        fetch(`http://localhost:5000/toys?email=${user.email}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
     // console.log(toys);
     return (
         <div className='container mx-auto py-10'>
-            <div className="text-center mb-5">
-                <h1 className="text-4xl font-bold">My Toy!</h1>
+            <div className="text-center mb-10">
+                <h1 className="text-4xl underline text-primary font-bold">My Toy!</h1>
             </div>
             <div>
 
@@ -22,7 +25,7 @@ const MyToys = () => {
                         {/* head */}
                         <thead>
                             <tr className='text-lg'>
-                                <th className=''>Image</th>
+                                <th>Image</th>
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Price</th>
