@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../../public/ToyTown-Logo.png';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut();
+    }
+
 
     const navItems = <>
         <li className='font-bold uppercase'>
@@ -46,8 +54,22 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-5">
+                    {
+                        user ?
+                            <>
+                                <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                                    <img className='w-10 cursor-pointer rounded-full' src={user.photoURL ? user.photoURL : userPng} alt="" />
+                                    {
+                                        console.log(user.photoURL)
+                                    }
+                                </div>
+                                <Link className=" font-medium text-[white] px-8 py-3 bg-primary border border-primary hover:bg-[#ff6a3d00] hover:text-primary rounded"><button onClick={handleSignOut}>Logout</button></Link></>
+                            :
+                            <>
+                                <Link to='/login' className=" font-medium text-[white] px-8 py-3 bg-primary border border-primary hover:bg-[#ff6a3d00] hover:text-primary rounded">Login</Link>
+                            </>
+                    }
 
-                    <Link to='/login' className=" font-medium text-[white] px-8 py-3 bg-primary border border-primary hover:bg-[#ff6a3d00] hover:text-primary rounded">Login</Link>
                 </div>
             </div>
         </div>
