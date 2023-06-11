@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2'
 
 const ShopByCategory = () => {
-    const { loading } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const [selectedCategory, setSelectedCategory] = useState('Die-Cast Cars');
     const [toys, setToys] = useState([]);
 
@@ -19,10 +20,21 @@ const ShopByCategory = () => {
         setSelectedCategory(category);
     };
 
+    const loginAlert = () => {
+        Swal.fire(
+            'Not Logged In?',
+            'You have to log in first to view details.',
+            'question'
+        )
+        .then(result =>{
+            window.location.href = '/login';
+        })
+    }
+
 
     const categoryToys = <>
         {
-            loading ? 
+            loading ?
                 <div className='min-h-screen text-center mt-14'>
                     <div className='inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]' role='status'>
                         <span className='absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0' style={{ clip: 'rect(0,0,0,0)' }}>
@@ -30,7 +42,7 @@ const ShopByCategory = () => {
                         </span>
                     </div>
                 </div>
-             : 
+                :
                 <div className='grid md:grid-cols-4 gap-10'>
                     {toys.map((toy) => (
                         <div key={toy._id} className=''>
@@ -42,18 +54,27 @@ const ShopByCategory = () => {
                                 <p>Price: ${toy.price}</p>
                                 <p>Rating: {toy.rating}</p>
                                 <div className='card-actions'>
-                                    <Link
-                                        to={`toyInfo/${toy._id}`}
-                                        className='font-medium btn btn-primary hover:bg-transparent hover:text-primary py-2 px-11'
-                                    >
-                                        Details
-                                    </Link>
+                                    {user ? (
+                                        <Link
+                                            to={`toyInfo/${toy._id}`}
+                                            className='font-medium btn btn-primary hover:bg-transparent hover:text-primary py-2 px-11'
+                                        >
+                                            Details
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            className='font-medium btn btn-primary hover:bg-transparent hover:text-primary py-2 px-11'
+                                            onClick={loginAlert}
+                                        >
+                                            Details
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-            }
+        }
     </>
 
     return (
