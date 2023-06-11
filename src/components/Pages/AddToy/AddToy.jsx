@@ -24,7 +24,7 @@ const AddToy = () => {
         // console.log(toy);
 
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-town-server-nurulhaque-pro.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

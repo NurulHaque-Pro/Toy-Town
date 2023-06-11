@@ -11,7 +11,7 @@ const ShopByCategory = () => {
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/category/${selectedCategory}`)
+        fetch(`https://toy-town-server-nurulhaque-pro.vercel.app/toys/category/${selectedCategory}`)
             .then((res) => res.json())
             .then((data) => setToys(data));
     }, [selectedCategory]);

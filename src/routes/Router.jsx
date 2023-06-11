@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: '/blogs',
         element: <Blogs></Blogs>,
-        loader: () => fetch('http://localhost:5000/blogs/')
+        loader: () => fetch('https://toy-town-server-nurulhaque-pro.vercel.app/blogs/')
       },
       {
         path: '/login',
@@ -53,12 +53,12 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <PrivetRoute><Update></Update></PrivetRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-town-server-nurulhaque-pro.vercel.app/toys/${params.id}`)
       },
       {
         path: '/toyinfo/:id',
         element: <PrivetRoute><ToyInfo></ToyInfo></PrivetRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-town-server-nurulhaque-pro.vercel.app/toys/${params.id}`)
       }
     ]
   },

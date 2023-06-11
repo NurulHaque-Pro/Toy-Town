@@ -8,7 +8,7 @@ const MyToys = () => {
     const [toys, setToys] = useState([]);
     const [toyLoading, setToyLoading] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?email=${user.email}`)
+        fetch(`https://toy-town-server-nurulhaque-pro.vercel.app/toys?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setToys(data);
@@ -28,7 +28,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${_id}`, {
+                fetch(`https://toy-town-server-nurulhaque-pro.vercel.app/toys/${_id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())
