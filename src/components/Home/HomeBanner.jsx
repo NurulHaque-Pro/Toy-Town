@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const HomeBanner = () => {
     return (
         <div>
-            <div className="carousel w-full">
+            {/* <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full h-[520px]">
                     <img src={headerBg1} className="w-full" />
                     <div className="absolute bg-gradient-to-r from-[#00000075] flex justify-between transform ">
@@ -35,6 +35,23 @@ const HomeBanner = () => {
                         <a href="#slide2" className="btn btn-circle">❮</a>
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
+                </div>
+            </div> */}
+
+            <div>
+                <div className="hero h-[500px]" style={{ backgroundImage: `url(${headerBg2})` }}>
+                    <div className="hero-overlay bg-black bg-opacity-70"></div>
+                    <div className="hero-content text-white">
+                        <div className="px-3 max-w-2xl text-center">
+                            <h1 className="mb-5 md:text-xl text-primary font-bold">Discover Endless Fun...</h1>
+                            <h1 className="mb-5 text-white text-4xl md:text-5xl font-bold"> Where Imagination Comes to Life!</h1>
+                            <p className="mb-8">Explore a world of joy and excitement at Toy Town! From classic favorites to the latest trends, our vast collection of toys guarantees endless fun for all ages.</p>
+                            <Link to='/alltoys' className="px-10 font-medium btn btn-outline btn-primary">
+                                All Toys
+                            </Link>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
