@@ -14,6 +14,7 @@ import Login from '../components/Pages/Login/Login';
 import SignUp from '../components/Pages/SignUp/Signup';
 import PrivetRoute from './PrivetRoute';
 import Update from '../components/Pages/MyToys/Update';
+import ToyInfo from '../components/Pages/ProductDetails/ToyInfo';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <PrivetRoute><Update></Update></PrivetRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+      },
+      {
+        path: '/toyinfo/:id',
+        element: <PrivetRoute><ToyInfo></ToyInfo></PrivetRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
       }
     ]
