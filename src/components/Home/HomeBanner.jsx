@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import headerBg1 from '../../assets/Header-Bg1-1300x700.jpg';
 import headerBg2 from '../../assets/Header-Bg2-1300x700.jpg';
 import headerBg3 from '../../assets/Header-Bg1-1300x700.jpg';
 import headerBg4 from '../../assets/Header-Bg1-1300x700.jpg';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const HomeBanner = () => {
+
+    useEffect(() => {
+        AOS.init();
+      }, []);
+      
+
     return (
         <div>
             {/* <div className="carousel w-full">
@@ -41,7 +49,7 @@ const HomeBanner = () => {
             <div>
                 <div className="hero h-[500px]" style={{ backgroundImage: `url(${headerBg2})` }}>
                     <div className="hero-overlay bg-black bg-opacity-70"></div>
-                    <div className="hero-content text-white">
+                    <div  data-aos="fade-up" data-aos-duration="1000" className="hero-content text-white">
                         <div className="px-3 max-w-2xl text-center">
                             <h1 className="mb-5 md:text-xl text-primary">Discover Endless Fun...</h1>
                             <h1 className="mb-5 text-white text-4xl md:text-5xl "> Where Imagination Comes to Life!</h1>

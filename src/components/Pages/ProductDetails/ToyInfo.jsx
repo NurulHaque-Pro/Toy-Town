@@ -7,7 +7,7 @@ const ToyInfo = () => {
     console.log(toyInfo);
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto py-12'>
             <div className='grid md:grid-cols-2 items-center gap-8'>
                 {/* Toy Image */}
 

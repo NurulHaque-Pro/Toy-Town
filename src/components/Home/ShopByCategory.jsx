@@ -61,7 +61,7 @@ const ShopByCategory = () => {
                 :
                 <div className='grid md:grid-cols-4 gap-10'>
                     {toys.map((toy) => (
-                        <div key={toy._id} className=''>
+                        <div data-aos="fade-up" key={toy._id} className=''>
                             <figure className='px-10 pt-10'>
                                 <img src={toy.toyPhotoURL} alt='Die-Cast Cars' className='w-[225px] h-[225px] mx-auto' />
                             </figure>

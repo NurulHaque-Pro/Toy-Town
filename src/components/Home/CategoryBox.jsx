@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CategoryBox = () => {
+
+    useEffect(() => {
+        AOS.init();
+      }, []);
+      
+
     return (
         <div className='container mx-auto py-10 md:py-12 px-5 md:px-0'>
-            <div className='grid md:grid-cols-4 gap-5 '>
+            <div data-aos="fade-up " data-aos-duration="1000" className='grid md:grid-cols-4 gap-5 '>
                 <div className="card bg-base-100 shadow-xl image-full">
                     <figure><img className='' src="https://i.ibb.co/2nZN7HZ/s-l500.jpg" alt="Die-Cast-Cars" /></figure>
                     <div className="card-body grid items-center">
