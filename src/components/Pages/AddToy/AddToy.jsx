@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
+
 import Swal from 'sweetalert2'
 
 const AddToy = () => {
@@ -40,7 +41,10 @@ const AddToy = () => {
                         icon: 'success',
                         confirmButtonText: 'Done'
                     })
-                    form.reset();
+                        .then(() => {
+                            window.location.href = '/mytoys';
+                            form.reset();
+                        });
                 }
             })
 
@@ -92,6 +96,7 @@ const AddToy = () => {
                                 <option>Die-Cast Cars</option>
                                 <option>Remote-Controlled (RC) Cars</option>
                                 <option>Track Sets</option>
+                                <option>Toy Truck</option>
                                 <option>Construction Vehicle Toys</option>
                             </select>
                         </div>

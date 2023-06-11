@@ -14,20 +14,20 @@ const Navbar = () => {
 
 
     const navItems = <>
-        <li className='font-light'>
-            <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Home</NavLink>
+        <li className='font-extralight'>
+            <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary ' : 'text-[#757575]'}>Home</NavLink>
         </li>
-        <li className='font-light'>
+        <li className='font-extralight'>
             <NavLink to='/alltoys' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>All Toys</NavLink>
         </li>
-        <li className='font-light'>
+        <li className='font-extralight'>
             <NavLink to='/mytoys' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>My Toys</NavLink>
         </li>
-        <li className='font-bold uppercase'>
+        <li className='font-extralight'>
             <NavLink to='/addtoy' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Add A Toy</NavLink>
         </li>
 
-        <li className='font-light'>
+        <li className='font-extralight'>
             <NavLink to='/blog' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Blog</NavLink>
         </li>
     </>
