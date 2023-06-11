@@ -8,6 +8,8 @@ const AllToys = () => {
     const { loading, user, setLoading } = useContext(AuthContext)
     const [toys, setToys] = useState([])
 
+    const [toyLoading, setToyLoading] = useState(true)
+
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -37,7 +39,10 @@ const AllToys = () => {
     useEffect(() => {
         fetch('http://localhost:5000/toys')
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => {
+                setToys(data)
+                setToyLoading(false)
+            })
     }, [])
     // console.log(toys);
     return (
@@ -46,7 +51,7 @@ const AllToys = () => {
                 <h1 className="text-4xl text-primary underline font-bold">All Toys</h1>
             </div>
             {
-                loading ?
+                toyLoading ?
 
                     <div className='min-h-screen text-center mt-14'>
                         <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">

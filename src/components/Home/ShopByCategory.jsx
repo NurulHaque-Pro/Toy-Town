@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -20,16 +20,32 @@ const ShopByCategory = () => {
         setSelectedCategory(category);
     };
 
-    const loginAlert = () => {
-        Swal.fire(
-            'Not Logged In?',
-            'You have to log in first to view details.',
-            'question'
-        )
-        .then(result =>{
-            window.location.href = '/login';
-        })
-    }
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const loginAlert = (toyId) => {
+
+        Swal.fire({
+            title: 'Not Logged In?',
+            text: 'You have to log in first to view details.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Log In',
+            cancelButtonText: 'Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/login', {
+                    state: {
+                        from: {
+                            pathname: `/toyInfo/${toyId}`,
+                            search: location.search,
+                            hash: location.hash,
+                        },
+                    },
+                });
+            }
+        });
+    };
 
 
     const categoryToys = <>
@@ -64,7 +80,7 @@ const ShopByCategory = () => {
                                     ) : (
                                         <button
                                             className='font-medium btn btn-primary hover:bg-transparent hover:text-primary py-2 px-11'
-                                            onClick={loginAlert}
+                                            onClick={() => { loginAlert(toy._id) }}
                                         >
                                             Details
                                         </button>
