@@ -30,8 +30,9 @@ const ToyInfo = () => {
 
                 </div>
             </div>
-            <div className='p-7 border-t'>
-                <p className='font-semibold'>Description: <span className='font-normal'>{toyInfo?.description}</span></p>
+            <div className=' mt-5 p-7 border-t text-center space-y-4'>
+                <h2 className=''>Description</h2>
+                <p><span className='font-normal'>{toyInfo?.description}</span></p>
             </div>
         </div>
     );

@@ -56,7 +56,7 @@ const ShopByCategory = () => {
                                 <div className='card-actions'>
                                     {user ? (
                                         <Link
-                                            to={`toyInfo/${toy._id}`}
+                                            to={`/toyInfo/${toy._id}`}
                                             className='font-medium btn btn-primary hover:bg-transparent hover:text-primary py-2 px-11'
                                         >
                                             Details

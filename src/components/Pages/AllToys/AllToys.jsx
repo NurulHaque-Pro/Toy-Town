@@ -1,10 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const AllToys = () => {
 
-    const { loading, setLoading } = useContext(AuthContext)
+    const { loading, user, setLoading } = useContext(AuthContext)
     const [toys, setToys] = useState([])
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const loginAlert = (toyId) => {
+        Swal.fire({
+            title: 'Not Logged In?',
+            text: 'You have to log in first to view details.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Log In',
+            cancelButtonText: 'Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/login', {
+                    state: {
+                        from: {
+                            pathname: `/toyInfo/${toyId}`,
+                            search: location.search,
+                            hash: location.hash,
+                        },
+                    },
+                });
+            }
+        });
+    };
 
     useEffect(() => {
         fetch('http://localhost:5000/toys')
@@ -72,9 +100,21 @@ const AllToys = () => {
                                                     <span className="">{toy?.quantity} Pieces</span>
                                                 </td>
                                                 <td className='flex gap-3'>
-                                                    <button className="btn btn-outline btn-primary">
-                                                        Details
-                                                    </button>
+                                                    {user ? (
+                                                        <Link
+                                                            to={`/toyInfo/${toy._id}`}
+                                                            className='font-medium btn btn-primary hover:bg-transparent hover:text-primary py-2 px-11'
+                                                        >
+                                                            Details
+                                                        </Link>
+                                                    ) : (
+                                                        <button
+                                                            className='font-medium btn btn-primary hover:bg-transparent hover:text-primary py-2 px-11'
+                                                            onClick={() => { loginAlert(toy._id) }}
+                                                        >
+                                                            Details
+                                                        </button>
+                                                    )}
                                                 </td>
                                             </tr>
 
