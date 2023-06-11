@@ -8,13 +8,13 @@ import Home from '../components/Home/Home';
 import AllToys from '../components/Pages/AllToys/AllToys';
 import MyToys from '../components/Pages/MyToys/MyToys';
 import AddToy from '../components/Pages/AddToy/AddToy';
-import Blog from '../components/Pages/Blog/Blog';
 import Page404 from '../components/Pages/Page404';
 import Login from '../components/Pages/Login/Login';
 import SignUp from '../components/Pages/SignUp/Signup';
 import PrivetRoute from './PrivetRoute';
 import Update from '../components/Pages/MyToys/Update';
 import ToyInfo from '../components/Pages/ProductDetails/ToyInfo';
+import Blogs from '../components/Pages/Blog/Blogs';
 
 const router = createBrowserRouter([
   {
@@ -38,8 +38,9 @@ const router = createBrowserRouter([
         element: <PrivetRoute><AddToy></AddToy></PrivetRoute>
       },
       {
-        path: '/blog',
-        element: <Blog></Blog>
+        path: '/blogs',
+        element: <Blogs></Blogs>,
+        loader: () => fetch('http://localhost:5000/blogs/')
       },
       {
         path: '/login',

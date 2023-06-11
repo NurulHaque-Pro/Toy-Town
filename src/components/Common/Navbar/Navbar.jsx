@@ -28,7 +28,7 @@ const Navbar = () => {
         </li>
 
         <li className='font-extralight'>
-            <NavLink to='/blog' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Blog</NavLink>
+            <NavLink to='/blogs' className={({ isActive }) => isActive ? 'text-primary' : 'text-[#757575]'}>Blogs</NavLink>
         </li>
     </>
 

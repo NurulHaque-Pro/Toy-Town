@@ -96,13 +96,13 @@ const ShopByCategory = () => {
     return (
         <div className='container mx-auto py-12'>
             <div className='container mx-auto'>
-                <div className='text-center mb-7'>
-                    <h1 className='text-4xl underline text-primary font-bold'>Shop By Category</h1>
+                <div className='text-center mb-10'>
+                    <h1 className='text-4xl underline text-primary'>Shop By Category</h1>
                 </div>
             </div>
             <div>
                 <Tabs>
-                    <TabList>
+                    <TabList className='text-center border-b'>
                         <Tab onClick={() => handleCategoryClick('Die-Cast Cars')}>Die-Cast Cars</Tab>
                         <Tab onClick={() => handleCategoryClick('Remote-Controlled (RC) Cars')}>Rc Cars</Tab>
                         <Tab onClick={() => handleCategoryClick('Track Sets')}>Track Sets</Tab>

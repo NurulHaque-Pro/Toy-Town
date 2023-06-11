@@ -24,13 +24,13 @@ const Gallery = () => {
 
     return (
         <div className='bg-green-50'>
-            <div className='container mx-auto p-16'>
+            <div className='container mx-auto px-5 py-10 md:p-14'>
                 <div className="text-center mb-10">
-                    <h1 className="text-4xl text-primary underline font-bold">Toy Gallery</h1>
+                    <h1 className="text-4xl text-primary underline">Toy Gallery</h1>
                 </div>
                 <div>
                     <ResponsiveMasonry
-                        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}
+                        columnsCountBreakPoints={{ 350: 2, 750: 2, 900: 4 }}
                     >
                         <Masonry gutter='10px' >
                             {images.map((image, i) => (

@@ -48,7 +48,7 @@ const AllToys = () => {
     return (
         <div className='container mx-auto py-10'>
             <div className="text-center mb-10">
-                <h1 className="text-4xl text-primary underline font-bold">All Toys</h1>
+                <h1 className="text-4xl text-primary underline">All Toys</h1>
             </div>
             {
                 toyLoading ?

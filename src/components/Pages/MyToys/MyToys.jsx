@@ -52,7 +52,7 @@ const MyToys = () => {
     return (
         <div className='container mx-auto py-10'>
             <div className="text-center mb-10">
-                <h1 className="text-4xl underline text-primary font-bold">My Toy!</h1>
+                <h1 className="text-4xl underline text-primary">My Toy!</h1>
             </div>
             {
                 toyLoading ? <div className='min-h-screen text-center mt-14'>

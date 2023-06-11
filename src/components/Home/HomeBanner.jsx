@@ -43,10 +43,10 @@ const HomeBanner = () => {
                     <div className="hero-overlay bg-black bg-opacity-70"></div>
                     <div className="hero-content text-white">
                         <div className="px-3 max-w-2xl text-center">
-                            <h1 className="mb-5 md:text-xl text-primary font-bold">Discover Endless Fun...</h1>
-                            <h1 className="mb-5 text-white text-4xl md:text-5xl font-bold"> Where Imagination Comes to Life!</h1>
+                            <h1 className="mb-5 md:text-xl text-primary">Discover Endless Fun...</h1>
+                            <h1 className="mb-5 text-white text-4xl md:text-5xl "> Where Imagination Comes to Life!</h1>
                             <p className="mb-8">Explore a world of joy and excitement at Toy Town! From classic favorites to the latest trends, our vast collection of toys guarantees endless fun for all ages.</p>
-                            <Link to='/alltoys' className="px-10 font-medium btn btn-outline btn-primary">
+                            <Link to='/alltoys' className="px-10 font-medium btn btn-primary hover:bg-transparent hover:text-primary">
                                 All Toys
                             </Link>
                         </div>

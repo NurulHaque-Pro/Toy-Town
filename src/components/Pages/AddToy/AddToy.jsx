@@ -55,7 +55,7 @@ const AddToy = () => {
     return (
         <div className='my-10'>
             <div className="text-center mb-5">
-                <h1 className="text-4xl font-bold">Upload Your Toy!</h1>
+                <h1 className="text-4xl">Upload Your Toy!</h1>
             </div>
             <div className="card flex-shrink-0 w-full mx-auto max-w-5xl shadow-2xl bg-base-100">
 
